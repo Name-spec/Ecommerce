@@ -1,0 +1,220 @@
+{% extends "header.html" %}
+{% block body %}
+
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img='static/assets/img/page-titlebg.png'>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading">
+                            <h1 class="h2">Journal<span>Magazine</span></h1>
+                        </div>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="index.html">home</a></li>
+                            <li class="active"><a href="{{url_for('reload')}}">Blog</a></li>
+                        </ul>
+
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    <!-- blog post inner -->
+    <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- single blog post -->
+                    <div class="single-blog-wrap type3">
+                        <div class="row align-items-center">
+                            <div class="col-md-7 col-lg-8">
+                                <!-- single blog post details -->
+                                <div class="single-post-details left-content">
+                                    <p>#FashionDesign</p>
+                                    <h3><a>Skechers Unisex-Child Glimmer Kicks Sneaker</a></h3>
+                                    <div class="post-info">
+                                        <ul class="list-unstyled mb-0">
+                                            <li>
+                                                <a>2022/08/15</a>
+                                            </li>
+                                            <li>
+                                                by <a>stephon</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="post-body">
+                                        <p>Smooth synthetic overlays at toe and sides
+                                            Matching color side S logo detail
+                                            Stretch laced front panel for easy slip on fit
+                                            Instep strap with tone-on-tone SKECHERS logo
+                                            Strap with hook and loop side closure for a precise fit</p>
+                                        <div
+                                            class="reading-and-reply d-flex align-items-center justify-content-between">
+                                            <a   href='{{url_for("blog_details")}}' class="btn btn-line">Continue Reading...</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of single blog post details -->
+                            </div>
+                            <div class="col-md-5 col-lg-4 order-first order-md-last">
+                                <!-- single blog image -->
+                                <div class="single-blog-image hover-effect">
+                                    <a><img src="static/assets/img/blog/list-1.png" alt=""></a>
+                                </div>
+                                <!-- End of single blog image -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of single blog post -->
+
+                    <!-- single blog post -->
+                    <div class="single-blog-wrap type3">
+                        <div class="row align-items-center">
+                            <div class="col-md-5 col-lg-4">
+                                <!-- single blog image -->
+                                <div class="single-blog-image hover-effect">
+                                    <a><img src="static/assets/img/blog/list-2.png" alt=""></a>
+                                </div>
+                                <!-- End of single blog image -->
+                            </div>
+                            <div class="col-md-7 col-lg-8">
+                                <!-- single blog post details -->
+                                <div class="single-post-details right-content">
+                                    <p>#FashionDesign</p>
+                                    <h3><a>Simple Joys by Carter's Toddler Boys' Pull-On Pant, Pack of 2</a></h3>
+                                    <div class="post-info">
+                                        <ul class="list-unstyled mb-0">
+                                            <li>
+                                                <a>2022/07/21</a>
+                                            </li>
+                                            <li>
+                                                by <a>jason</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="post-body">
+                                        <p>98% Cotton, 2% Elastane
+                                            Imported
+                                            Button closure
+                                            Machine Wash
+                                            Cotton Blend Twill
+                                            50 Wash Tested Shrink & Fade Resistant
+                                            Adjustable Waist For Great Fit
+                                            Stretch, Comfort That Lasts
+                                            Chalk Button With Hook & Eye Closure.Ankle Length.Side Seam Pockets</p>
+                                        <div
+                                            class="reading-and-reply d-flex align-items-center justify-content-between">
+                                            <a   href='{{url_for("blog_details")}}' class="btn btn-line">Continue Reading...</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of single blog post details -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of single blog post -->
+
+                    <!-- single blog quote -->
+                    <div class="single-blog-quote">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9 col-md-10">
+                                <div class="single-quote-text text-center">
+                                    <h4>“When you say it, it’s marketing. When your customer says it, it’s social proof"</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of single blog quote -->
+
+                    <!-- single blog post -->
+                    <div class="single-blog-wrap type3">
+                        <div class="row align-items-center">
+                            <div class="col-md-7 col-lg-8">
+                                <!-- single blog post details -->
+                                <div class="single-post-details left-content">
+                                    <p>#FashionDesign</p>
+                                    <h3><a>Skechers Unisex-Child Glimmer Kicks Sneaker</a></h3>
+                                    <div class="post-info">
+                                        <ul class="list-unstyled mb-0">
+                                            <li>
+                                                <a>2022/08/15</a>
+                                            </li>
+                                            <li>
+                                                by <a>stephon</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="post-body">
+                                        <p>Smooth synthetic overlays at toe and sides
+                                            Matching color side S logo detail
+                                            Stretch laced front panel for easy slip on fit
+                                            Instep strap with tone-on-tone SKECHERS logo
+                                            Strap with hook and loop side closure for a precise fit</p>
+                                        <div
+                                            class="reading-and-reply d-flex align-items-center justify-content-between">
+                                            <a  href='{{url_for("blog_details")}}' class="btn btn-line">Continue Reading...</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of single blog post details -->
+                            </div>
+                            <div class="col-md-5 col-lg-4 order-first order-md-last">
+                                <!-- single blog image -->
+                                <div class="single-blog-image hover-effect">
+                                    <a><img src="static/assets/img/blog/list-3.png" alt=""></a>
+                                </div>
+                                <!-- End of single blog image -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of single blog post -->
+
+                    <!-- single blog post -->
+                    <div class="single-blog-wrap type3">
+                        <div class="row align-items-center">
+                            <div class="col-md-5 col-lg-4">
+                                <!-- single blog image -->
+                                <div class="single-blog-image hover-effect">
+                                    <a><img src="static/assets/img/blog/list-4.png" alt=""></a>
+                                </div>
+                                <!-- End of single blog image -->
+                            </div>
+
+                            <div class="col-md-7 col-lg-8">
+                                <!-- single blog post details -->
+                                <div class="single-post-details right-content">
+                                    <p>#FashionDesign</p>
+                                    <h3><a>Best product and services provided by hazel</a></h3>
+                                    <div class="post-info">
+
+                                    </div>
+                                    <div class="post-body">
+                                        <p>Offer a wide range of well-designed, functional home furnishing products at prices
+                                        so low that as many people as possible will be able to afford them.</p>
+                                        <div
+                                            class="reading-and-reply d-flex align-items-center justify-content-between">
+                                            <a  href='{{url_for("blog_details")}}' class="btn btn-line">Continue Reading...</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of single blog post details -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of single blog post -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Ennd of blog post inner -->
+
+{% endblock %}

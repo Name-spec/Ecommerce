@@ -1,0 +1,232 @@
+{% extends "header.html" %}
+{% block body %}
+
+{% with m = '/add/c' %}
+
+<!-- Modal Sub-Cat Main -->
+    <div class="modal-window-container fancy sub-cat with-image">
+            <div class="modal-window-overlay"></div>
+            <div class="modal-window-content">
+                <div class="modal-window-inner text-center">
+                    <h2>Add Sub Category</h2>
+                    <p>It is a long established fact that a reader will<br> distracted by the readable content of a page when looking injected humour its layout.</p>
+                    <div class="modal-subscribe">
+                        <form action= "/add-category" method="post" enctype="multipart/form-data">
+                            <input type="text" name="name" class="theme-input-style" maxlength="50" required placeholder="Enter Category Here">
+                            <input type="text" name="nm" id="i" class="theme-input-style" hidden>
+                            <button type="submit"><img src="static/assets/img/icons/right-icon.svg" class="svg" alt=""></button>
+<!--                            <input type="text" id="h" name="nm" value="{{sub_cat_name}}"  class="theme-input-style" hidden>-->
+                            <!-- actual upload which is hidden -->
+                            <input type="file" name="img" id="actual-btn" required accept="image/*" hidden/>
+                            <!-- our custom upload button -->
+                            <label class="chose-file" for="actual-btn">Choose File</label>
+                            <!-- name of file chosen -->
+                            <span id="file-chosen">No file chosen</span>
+                        </form>
+                    </div>
+                    <div class="modal-window-close">
+                        <img src="static/assets/img/icons/close-button.svg" class="svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- End of main wrapper -->
+
+<!-- page title -->
+    <section class="page-title-inner" data-bg-img='static/assets/img/page-titlebg.png'>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2">Admin<span>Panel</span></h1></div>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">Profile</a></li>
+                             <li><a href="#">Manage</a></li>
+                            <li class="active"><a href="{{url_for('reload')}}">Admin-Panel</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    {% for i in data %}
+        <div class="container">
+                <div class="category-div">
+                    <div class="cat-head">
+                        <h2 class="cat-name">{{ i['name'] }}</h2>
+                        <a id='{{i["name"]}}' href="#" class="btn btn-fill-type"> Add Sub Category</a>
+                    </div>
+                </div>
+             <div class="cat-body">
+                {% for j in i['subcat'] %}
+                    <div class="cat-link-div">
+                        <p class="cat-links">{{ j }}</p>
+                        <div class="anchor-div">
+                            <a href='{{url_for("view_category", value=j)}}'><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>
+                            <a href='{{url_for("delete_category", value=j)}}'><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>
+                        </div>
+                    </div>
+                {% endfor %}
+             </div>
+        </div>
+    {% endfor %}
+
+{% endwith %}
+
+{% endblock %}
+
+
+<!--                <div class="cat-body">-->
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 1</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+
+
+<!--            <div class="category-div">-->
+<!--                <div class="cat-head">-->
+<!--                    <h2 class="cat-name">Electronics</h2>-->
+<!--                    <a href="#" class="btn btn-fill-type"> Add Sub Category</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="category-div">-->
+<!--                <div class="cat-head">-->
+<!--                    <h2 class="cat-name">Accessories</h2>-->
+<!--                    <a href="#" class="btn btn-fill-type"> Add Sub Category</a>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+
+
+
+
+
+
+
+
+<!--                <div class="cat-body">-->
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 1</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 2</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 3</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 4</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+
+
+
+<!--                <div class="cat-body">-->
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 1</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 2</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 3</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 4</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+<!--                </div>-->
+
+
+
+
+
+
+<!--                <div class="cat-body">-->
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 1</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 2</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 3</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="cat-link-div">-->
+<!--                        <p class="cat-links">Category 4</p>-->
+<!--                        <div class="anchor-div">-->
+<!--                            <a href=""><img src="static/assets/img/open-eye.png" alt="" class="sub-cat-icon open-eye"></a>-->
+<!--                            <a href=""><img src="static/assets/img/dustbin.png" alt="" class="sub-cat-icon dustbin"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+<!--                </div>-->

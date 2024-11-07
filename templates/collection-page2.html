@@ -1,0 +1,91 @@
+{% extends "header.html" %}
+{% block body %}
+    <!-- page title -->
+    <section class="page-title-inner" data-bg-img='static/assets/img/page-titlebg.png'>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2">{{ collection }}<span>LookBook</span></h1></div>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="index.html">home</a></li>
+                            <li><a href="#">Collection</a></li>
+                            <li class="active"><a href="{{url_for('reload')}}">{{ collection }}</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    <!-- collection inner area -->
+    <section class="pt-100 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!-- single collection wrap -->
+                            <div class="single-collection-wrap">
+                                <div class="collection-image">
+                                    <img src="static/assets/img/trendy.jpg" data-rjs='2' alt="">
+                                    <div class="image-caption">
+                                        <h3><a href='{{url_for("collect", col=collection, type="trendy")}}'>Trendy Fashion</a></h3>
+                                        <a href='{{url_for("collect", col=collection, type="trendy")}}' class="btn btn-line">Browse All Collections</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of single collection wrap -->
+                        </div>
+
+                        <div class="col-md-9 offset-md-3">
+                            <!-- single collection wrap -->
+                            <div class="single-collection-wrap left-content">
+                                <div class="collection-image">
+                                    <img src="static/assets/img/beauty.jpg" data-rjs='2' alt="">
+                                    <div class="image-caption">
+                                        <h3><a href='{{url_for("collect", col=collection, type="beauty")}}'>Beauty Magzine</a></h3>
+                                        <a href='{{url_for("collect", col=collection, type="beauty")}}' class="btn btn-line">Browse All Collections</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of single collection wrap -->
+                        </div>
+
+                        <div class="col-md-9">
+                            <!-- single collection wrap -->
+                            <div class="single-collection-wrap">
+                                <div class="collection-image">
+                                    <img src="static/assets/img/decoration.jpg" data-rjs='2' alt="">
+                                    <div class="image-caption">
+                                        <h3><a href='{{url_for("collect", col=collection, type="home")}}'>Home Decoration</a></h3>
+                                        <a href='{{url_for("collect", col=collection, type="home")}}' class="btn btn-line">Browse All Collections</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of single collection wrap -->
+                        </div>
+
+                        <div class="col-md-9 offset-md-3">
+                            <!-- single collection wrap -->
+                            <div class="single-collection-wrap left-content">
+                                <div class="collection-image">
+                                    <img src="static/assets/img/accessories.jpg" data-rjs='2' alt="">
+                                    <div class="image-caption">
+                                        <h3><a href='{{url_for("collect", col=collection, type="technology")}}'>Technology</a></h3>
+                                        <a href='{{url_for("collect", col=collection, type="technology")}}' class="btn btn-line">Browse All Collections</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of single collection wrap -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- collection inner area -->
+{% endblock %}

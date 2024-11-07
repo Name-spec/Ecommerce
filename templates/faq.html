@@ -1,0 +1,158 @@
+{% extends "header.html" %}
+{% block body %}
+   <!-- page title -->
+    <section class="page-title-inner" data-bg-img='static/assets/img/page-titlebg.png'>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2">questions<span>FAQ</span></h1></div>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="index.html">home</a></li>
+                            <li class="active"><a href="{{url_for('reload')}}">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    <!-- product details wrapper -->
+    <section class="pt-100 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                      <!-- faq inner area -->
+                        <div class="faq-content-wrap type2">
+                            <ul class="faq-list mb-0 list-unstyled">
+                                <li>
+                                    <span class="roboto">
+                                        01
+                                    </span>
+                                    <h4 class="lato">What is the return policy of your store please let me know i want to return a bag which i have purchased from your store?</h4>
+                                    <p>First of all i really appreciate your purchase from our store.return policy is simple you just need to fill return form and our rider will come to you.The item will be inspected and your credits will be added in your wallet in 3 working days.delivery charges may be applied.</p>
+                                </li>
+                                <li>
+                                    <span class="roboto">
+                                        02
+                                    </span>
+                                    <h4 class="lato">What is the maximum time for delivery in other city and do you have any physical center.</h4>
+                                    <p>We really appreciate your interest regarding this.I want to ellaborate you that it take 3 to 5 working days to deliver any where.second yes we do have physical center in Lahore</p>
+                                </li>
+                                 <li>
+                                    <span class="roboto">
+                                        03
+                                    </span>
+                                    <h4 class="lato">What is your buisness model.Is any other 3rd party participate in selling product or you just sell your own products.</h4>
+                                    <p>First of all thank you so much for your interest in our store.yes we do have plans to expand our buisness model with 3rd party seller to contribute but for now we now we are not being able to add 3rd party.We for now just sell our product which have the best quality and rate.</p>
+                                </li>
+                                <li>
+                                    <span class="roboto">
+                                        04
+                                    </span>
+                                    <h4 class="lato">What is the maximum time for delivery in other city and do you have any physical center.</h4>
+                                    <p>We really appreciate your interest regarding this.I want to ellaborate you that it take 3 to 5 working days to deliver any where.second yes we do have physical center in Lahore</p>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- End of faq inner area -->
+                </div>
+                <div class="col-lg-3">
+                        <aside>
+                            <!--Single sidebar widget -->
+                            <div class="single-sidebar-widget mb-60">
+                                <!-- widget title -->
+                                <div class="widget-title">
+                                    <h4>New Products</h4>
+                                </div>
+                                <!--End of widget title -->
+                                <div class="new-product-item">
+                                    <ul class="list-unstyled mb-0">
+                                        {% for x in new %}
+                                            <!-- single new product -->
+                                            <li>
+                                                <div class="new-product-wrap media">
+                                                    <div class="new-produt-image">
+                                                        <img src='{{x.img}}' alt="">
+                                                    </div>
+                                                    <div class="product-img-caption media-body">
+                                                        <h5><a href='{{url_for("show_details", id=x.id)}}'>{{x.name}}</a></h5>
+                                                        <h6>${{x.price}}</h6>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <!--End of single new product -->
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--End of Single sidebar widget -->
+
+                        </aside>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of product details wrapper -->
+{% endblock %}
+
+
+
+<!--                            &lt;!&ndash;Single sidebar widget &ndash;&gt;-->
+<!--                            <div class="single-sidebar-widget mb-60">-->
+<!--                                &lt;!&ndash; widget title &ndash;&gt;-->
+<!--                                <div class="widget-title">-->
+<!--                                    <h4>Recent Review</h4>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash;End of widget title &ndash;&gt;-->
+<!--                                <div class="new-product-item">-->
+<!--                                    <ul class="list-unstyled mb-0">-->
+<!--                                        &lt;!&ndash; single recent product &ndash;&gt;-->
+<!--                                        <li>-->
+<!--                                            <div class="recent-product-wrap media">-->
+<!--                                                <div class="recent-produt-image">-->
+<!--                                                    <img src="static/assets/img/shop/img4.png" alt="">-->
+<!--                                                </div>-->
+<!--                                                <div class="product-img-caption media-body">-->
+<!--                                                    <h5><a href="#">Leather Mini Backpack</a></h5>-->
+<!--                                                    <h6>$32</h6>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        &lt;!&ndash;End of single recent product &ndash;&gt;-->
+<!--    -->
+<!--                                        &lt;!&ndash; single recent product &ndash;&gt;-->
+<!--                                        <li>-->
+<!--                                            <div class="recent-product-wrap media">-->
+<!--                                                <div class="recent-produt-image">-->
+<!--                                                    <img src="static/assets/img/shop/img5.png" alt="">-->
+<!--                                                </div>-->
+<!--                                                <div class="product-img-caption media-body">-->
+<!--                                                    <h5><a href="#">Double Zip Pouch Clutch</a></h5>-->
+<!--                                                    <h6>$42</h6>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        &lt;!&ndash;End of single recent product &ndash;&gt;-->
+<!--    -->
+<!--                                        &lt;!&ndash; single recent product &ndash;&gt;-->
+<!--                                        <li>-->
+<!--                                            <div class="recent-product-wrap media">-->
+<!--                                                <div class="recent-produt-image">-->
+<!--                                                    <img src="static/assets/img/shop/img6.png" alt="">-->
+<!--                                                </div>-->
+<!--                                                <div class="product-img-caption media-body">-->
+<!--                                                    <h5><a href="#">Copley Dining Chair</a></h5>-->
+<!--                                                    <h6>$22</h6>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        &lt;!&ndash;End of single recent product &ndash;&gt;-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            &lt;!&ndash;End of Single sidebar widget &ndash;&gt;-->

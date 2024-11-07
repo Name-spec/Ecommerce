@@ -1,0 +1,111 @@
+{% extends "header.html" %}
+{% block body %}
+
+   <!-- page title -->
+    <section class="page-title-inner" data-bg-img='static/assets/img/page-titlebg.png'>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2">{{name}}<span>LookBook</span></h1></div>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="index.html">home</a></li>
+                            <li class="active"><a href="{{url_for('reload')}}">{{name}}</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    <!-- End of Search Bar -->
+
+<!-- New Arrival -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 mt-40">
+                <div class="search-bar primary-form parsley-validate">
+                    <form action="/search" method="post">
+                        <input type="text" name="value" class="theme-input-style" maxlength="50" placeholder="Type Your Search Here" required>
+                        <input type="submit" class="search-icon" value="&#xF002;">
+                    </form>
+                </div>
+            </div>
+                <!-- End of Search Bar -->
+            {% for x in items %}
+                <div class="col-sm-6 col-12 col-lg-3">
+                    <!-- single product -->
+                    <div class="single-product">
+                        <div class="product-item">
+                            <div class="product-thumb">
+                                <!-- Product Image -->
+                                <div class="product-image">
+                                    <a href='{{url_for("show_details", id=x.id)}}'>
+                                        <img class='normal-state' data-rjs="2" src='{{x.img}}'
+                                             alt="">
+                                        <img class='hover-state' data-rjs="2" src='{{x.img}}'
+                                             alt="">
+                                    </a>
+                                </div>
+                                <!-- End of Product Image -->
+
+                                <!-- product button -->
+                                <div class="product-buttons">
+                                    <div class="quick-btn">
+                                        <div class="quick-icon-btn">
+                                            <a href='{{url_for("show_details", id=x.id)}}' class="quick_view">
+                                                <span class="product-icon"><i class="fa fa-eye"
+                                                                              aria-hidden="true"></i></span>
+                                                <span class="icon-title">Quick View</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="addto-cart-btn">
+                                        <div class="addto-icon-btn">
+                                            <a href='{{url_for("add_cart", id=x.id, quantity=1)}}'>
+                                                <span class="product-icon"><img src="static/assets/img/icons/add-bag.svg"
+                                                                                alt="" class="svg"></span>
+                                                <span class="icon-title">Add To Cart</span>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div class="wishlist-btn">
+                                        <div class="wishlist-icon-btn">
+                                            <a href='{{url_for("add_wishlist", id=x.id)}}'>
+                                                <span class="product-icon"><img src="static/assets/img/icons/wishlist.svg"
+                                                                                alt="" class="svg"></span>
+                                                <span class="icon-title">Add To Wish List</span>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- End of product button -->
+
+                            </div>
+
+                            <!-- product info -->
+                             <div class="product-info">
+                                 <h4><a href='{{url_for("show_details", id=x.id)}}'>{{ x.name }}</a></h4>
+                                 <div class="product-price"><h5>$ {{x.price}}</h5></div>
+                            </div>
+                            <!-- End of product info -->
+                        </div>
+                    </div>
+                    <!-- End of single product -->
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End of New Arrival -->
+
+
+
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "header.html" %}
+{% block body %}
+
+<!-- Modal Sub-Cat Main -->
+    <div class="modal-window-container fancy view-product">
+            <div class="modal-window-overlay"></div>
+            <div class="modal-window-content">
+                <div class="modal-window-inner text-center">
+                    <h2>Add Product</h2>
+                    <div class="modal-subscribe add-product">
+                        <form action="/add-product" method="post" enctype="multipart/form-data">
+                            <input type="text" name="name" class="theme-input-style" maxlength="50" required placeholder="Name">
+                            <input type="number" name="price" class="theme-input-style" required placeholder="Price">
+                            <input type="text" name="brand" class="theme-input-style" maxlength="50" required placeholder="Brand">
+                            <input type="text" name="stock" class="theme-input-style" required placeholder="Stock">
+                            <input type="number" step="any" name="discount" class="theme-input-style" value="0" placeholder="Discount">
+                            <input type="text" name="detail" class="theme-input-style" maxlength="500" required placeholder="Detail">
+
+<!--                            <input type="file" id="myFile" class="upload-image" name="filename">-->
+                            <input type="text" name="nm" value='{{ sub_cat_name }}' class="theme-input-style" hidden>
+                            <!-- actual upload which is hidden -->
+                            <input type="file" name="img" id="actual-btn" required accept="image/*" hidden/>
+                            <!-- our custom upload button -->
+                            <label for="actual-btn">Choose File</label>
+                            <!-- name of file chosen -->
+                            <span id="file-chosen">No file chosen</span>
+                            <button type="submit" class="btn btn-fill-type">Add Now</button>
+                        </form>
+                    </div>
+                    <div class="modal-window-close">
+                        <img src="static/assets/img/icons/close-button.svg" class="svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- End of main wrapper -->
+
+<!-- Modal Sub-Cat Main 2 -->
+    <div class="modal-window-container fancy update-product">
+            <div class="modal-window-overlay"></div>
+            <div class="modal-window-content">
+                <div class="modal-window-inner text-center">
+                    <h2>Update Product</h2>
+                    <div class="modal-subscribe update-product">
+                        <form action="/update-product" method="post" enctype="multipart/form-data">
+                            <input id="name" type="text" name="name" maxlength="50" class="theme-input-style" required placeholder="Name">
+                            <input id="price" type="number" name="price" class="theme-input-style" required placeholder="Price">
+                            <input id="brand" type="text" name="brand" class="theme-input-style" maxlength="50" required placeholder="Brand">
+                            <input id="stock" type="text" name="stock" class="theme-input-style" required placeholder="Stock">
+                            <input id="discount" type="number" step="any" name="discount" class="theme-input-style" placeholder="Discount">
+                            <input id="detail" type="text" name="detail" class="theme-input-style" maxlength="500" required placeholder="Detail">
+                            <input id="id" type="text" name="nm" class="theme-input-style" hidden>
+                            <input id="sub" type="text" name="sub" value="{{sub_cat_name}}" class="theme-input-style" hidden>
+                            <button type="submit" class="btn btn-fill-type update">Update Now</button>
+                        </form>
+                    </div>
+                    <div class="modal-window-close">
+                        <img src="static/assets/img/icons/close-button.svg" class="svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- End of main wrapper 2 -->
+
+<!-- page title -->
+    <section class="page-title-inner" data-bg-img='static/assets/img/page-titlebg.png'>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- page title inner -->
+                    <div class="page-title-wrap">
+                        <div class="page-title-heading"><h1 class="h2">{{ sub_cat_name }}<span>Products</span></h1></div>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="admin-panel.html">Categories</a></li>
+                            <li class="active"><a href="{{url_for('reload')}}">{{ sub_cat_name }}</a></li>
+                        </ul>
+                    </div>
+                    <!-- End of page title inner -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of page title -->
+
+    <div class="container product-lists py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <a href="#" class="btn btn-fill-type add-a-product"> Add a Product</a>
+            <!-- List group-->
+            <ul class="list-group shadow">
+                {% for x in items %}
+                    <!-- list group item-->
+                    <li class="list-group-item">
+                        <!-- Custom content-->
+                        <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                            <div class="media-body order-2 order-lg-1">
+                                <h5 class="mt-0 font-weight-bold mb-2">{{ x.name }}</h5>
+                                <p class="font-italic text-muted mb-0 small">{{ x.details }}</p>
+                                <div class="d-flex align-items-center justify-content-between mt-1">
+                                    <h6 class="font-weight-bold my-2">$ {{ x.price }}</h6>
+                                </div>
+                                <div class="row">
+                                    <a href="#" id="{{x.id}}" class="btn btn-fill-type update-a-product">Update</a>
+                                    <a href='{{url_for("delete_product", id=x.id, sub_cat_name=sub_cat_name)}}' class="btn btn-fill-type delete-a-product">Delete</a>
+                                </div>
+                            </div>
+                            <img src='{{x.img}}' alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
+                        </div> <!-- End -->
+                    </li> <!-- End -->
+                {% endfor %}
+            </ul> <!-- End -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
